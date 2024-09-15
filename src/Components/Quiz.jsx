@@ -5,24 +5,51 @@ import { QuizContext } from "../helpers/Context";
 function Quiz() {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState(""); // Track selected option
-  const { score, setScore, setGameState } = useContext(QuizContext);
+  const { score, setScore, setGameState,  setUserAnswers } = useContext(QuizContext); // Add userAnswers to track answers
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
 
   const nextQuestion = () => {
-    if (selectedOption === Questions[currQuestion].answer) {
+    const correctAnswer = Questions[currQuestion].answer;
+
+
+    setUserAnswers((prev) => [
+      ...prev,
+      { 
+        question: Questions[currQuestion].prompt,
+        selected: selectedOption,
+        correct: correctAnswer 
+      }
+    ]);
+
+    // Check if selected option is correct
+    if (selectedOption === correctAnswer) {
       setScore(score + 1);
     }
+
+    // Move to the next question
     setSelectedOption(""); // Reset selected option for the next question
     setCurrQuestion(currQuestion + 1);
   };
 
   const finishQuiz = () => {
-    if (selectedOption === Questions[currQuestion].answer) {
+    const correctAnswer = Questions[currQuestion].answer;
+
+    setUserAnswers((prev) => [
+      ...prev,
+      { 
+        question: Questions[currQuestion].prompt,
+        selected: selectedOption,
+        correct: correctAnswer 
+      }
+    ]);
+
+    if (selectedOption === correctAnswer) {
       setScore(score + 1);
     }
+
     setGameState("endScreen");
   };
 
@@ -58,9 +85,9 @@ function Quiz() {
         </button>
       </div>
       {currQuestion === Questions.length - 1 ? (
-        <button onClick={finishQuiz}>Finish Quiz</button>
+        <button onClick={finishQuiz} disabled={!selectedOption}>Finish Quiz</button>
       ) : (
-        <button onClick={nextQuestion}>Next Question</button>
+        <button onClick={nextQuestion} disabled={!selectedOption}>Next Question</button>
       )}
     </div>
   );
