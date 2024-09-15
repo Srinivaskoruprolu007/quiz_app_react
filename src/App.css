@@ -87,6 +87,21 @@ button.selectedOption {
   border: 2px solid #0e06f5;
 }
 
+ /* endScreen */
+.correct {
+  color: green;
+  font-weight: bold;
+}
+
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
+
+.QuestionResult {
+  margin-bottom: 20px;
+}
+
 @media (max-width: 600px) {
   .Menu,
   .Quiz,
