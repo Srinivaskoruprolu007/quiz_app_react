@@ -1,38 +1,103 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
   min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.Menu {
+  max-width: 90%;
+  width: 500px;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Quiz {
+  max-width: 90%;
+  width: 500px;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.EndScreen {
+  max-width: 90%;
+  width: 500px;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Menu button,
+.Quiz button,
+.EndScreen button {
+  width: 100%;
+  max-width: 200px;
+  height: 50px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #4caf50;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.Menu button:hover,
+.Quiz button:hover,
+.EndScreen button:hover {
+  background-color: #f1f1f1;
+  color: #388e3c;
+}
+
+.Options {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button.selectedOption {
+  background-color: #6853f0;
+  color: #155724;
+  border: 2px solid #c3e6cb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 600px) {
+  .Menu,
+  .Quiz,
+  .EndScreen {
+    width: 90%;
+    height: auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  .Menu button,
+  .Quiz button,
+  .EndScreen button {
+    font-size: 16px;
   }
 }
